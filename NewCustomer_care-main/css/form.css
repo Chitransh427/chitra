@@ -1,0 +1,150 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+:root{
+  --primary: #f1bf42;
+  --secondary: #3d3d3d;
+  --white: #fff;
+}
+
+body{
+  background: var(--secondary);
+  /* background: linear-gradient(to right,rgb(156, 223, 223),rgb(249, 249, 249)) ; */
+  padding: 50px;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+h5 {
+  padding: 0;
+  margin-top: 40px;
+  align-items: center;
+  text-align: center;
+}
+.bold {
+  font-weight: 900;
+}
+.light{
+  font-weight: 100;
+}
+#logo {
+  padding: 0;
+  margin: 9px;
+  margin-left: 40px;
+  width: 70px;
+  height: 70px;
+}
+.wrapper{
+  background: var(--white);
+  padding: 30px;
+}
+.invoice_wrapper{
+  width: 700px;
+  max-width: 100%;
+  border: 3px solid #bbb7b7;
+}
+.form-control {
+  margin: 8px;
+}
+.btn:hover {
+  background: #58bcff;
+  transition: .5s;
+}
+
+.btn {
+  font-weight: 450;
+  /* background-color: #bbb7b7; */
+  background: #2691d9;
+  font-size: 18px;
+  color: #e9f4fb;
+  margin-top: 4px; 
+  margin-bottom: 4px;
+}
+
+#subject {
+  padding: 4px;
+  margin: 2px;
+  font-weight: 500;
+  margin-left: 9px;
+}
+.form-label {
+  margin-left: 9px;
+}
+
+@media only screen and (max-width: 780px) {
+  .wrapper{
+    padding: 20px;
+  }
+  .invoice_wrapper{
+    width: 400px;
+    max-width: 100%;
+  }
+  #logo {
+    width: 50px;
+    height: 50px;
+  }
+  .btn {
+    width: 80px;
+  }
+  h5 {
+    font-size: medium;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .wrapper{
+    padding: 10px;
+  }
+  .invoice_wrapper{
+    width: 300px;
+    max-width: 100%;
+  }
+  #logo {
+    width: 50px;
+    height: 46px;
+  }
+  .btn {
+    width: 70px;
+    height: 35px;
+  }
+  h5 {
+    font-size: small
+    ;
+  }
+} 
+@media only screen and (max-width: 320px) {
+  * {
+    font-size: small;
+  }
+  .wrapper{
+    padding: 10px;
+  }
+  .invoice_wrapper{
+    width: 200px;
+    max-width: 100%;
+  }
+  #logo {
+    width: 50px;
+    height: 40px;
+    margin-left: 70px;
+  }
+  .btn {
+    width: 55px;
+    height: 20px;
+    font-size:smaller;
+    font-weight: 600;
+    /* margin-bottom: px; */
+    padding: 0 1px 0 0;
+  }
+  h5 {
+    font-size: small;
+    text-align: center;
+    margin-left: 15px;
+    margin-top: 0px;
+  }
+} 

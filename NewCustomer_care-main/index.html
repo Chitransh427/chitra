@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Admin Dashboard</title>
+
+
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    window.onload = function () {
+      if (localStorage.getItem("token") == null) {
+        window.location.href = window.location.protocol + "//" + window.location.host + "/customerCare_login.html";
+
+      } else {
+        getUserInfo();
+      }
+    }
+  </script>
+  <script>
+    window.addEventListener('load', (event) => {
+      countTicket("NEW");
+      countTicket("ANSWERED");
+      countTicket("CLOSED");
+      countTicket("OPEN")
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="grid-container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="container">
+        <input type="text" placeholder="search">
+        <a href="#">
+          <li class="fa fa-search fa-flip" style="font-size:15px;color:#666666;"></li>
+        </a>
+      </div>
+      <!-- <div class="header-right">
+          <span class=" fa-regular fa-bell fa-shake"style="font-size:20px;color:#666666;" ></span>
+          <span class=" fa-regular fa-envelope fa-beat-fade"style="font-size:20px;color:#666666;" ></span>
+          <span class="fa-regular fa-circle-user fa-fade" style="font-size:20px;color:#666666;"></span>
+        </div> -->
+
+      <div class="hero">
+        <nav class="top_navbar">
+          <div class="bell-icon">
+            <a>
+              <i class="fa-solid fa-bell" onclick="changeIcon(this)"></i>
+            </a>
+
+          </div>
+          <div class="user">
+            <span> Hello,Agent!</span>
+          </div>
+          <!-- <div class="username">
+                  <span> Hello, <span id="profile_name"></span> !</span>
+                  <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
+                  <span class="text-on-hover" id="loghover" style="display: none;">Logout</span>
+              </div> -->
+
+          <img src="image/profile.png" class="user-pic" onclick="toggleMenu()">
+          <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+              <div class="user-info">
+                <img src="image/profile.png">
+                <h3>Abhigyan Mishra</h3>
+              </div>
+              <hr>
+              <a href="#" class="sub-menu-link">
+                <img src="image/editprofile.jpg">
+                <p>Edit Profile</p>
+                <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                <img src="image/settings.png">
+                <p>Settings</p>
+                <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                <img src="image/logout.png">
+                <p>Logout</p>
+                <span>></span>
+              </a>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined">inventory</span> Costomer care
+        </div>
+        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+      </div>
+
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="index.html">
+            <span class="material-icons-outlined">dashboard</span> Dashboard
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="newTicket.html" target="_blank">
+            <span class="material-icons-outlined">inventory_2</span> New_Tickets
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="openTicket.html" target="_blank">
+            <span class="material-icons-outlined">fact_check</span> Open_Tickets
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="answeredTicket.html" target="_blank">
+            <span class="material-icons-outlined">add_shopping_cart</span> Answered_Tickets
+          </a>
+        </li>
+        <!--
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons-outlined">shopping_cart</span> Sales Orders
+            </a>
+          </li>-->
+        <li class="sidebar-list-item">
+          <a href="closedTicket.html" target="_blank">
+            <span class="material-icons-outlined">poll</span> Closed_Tickets
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="settings.html" target="_blank">
+            <span class="material-icons-outlined">settings</span> Settings
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <!-- End Sidebar -->
+
+    <!-- Main -->
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold">DASHBOARD</p>
+      </div>
+
+      <div class="main-cards">
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">New_Tickets</p>
+            <span class="material-icons-outlined text-blue">inventory_2</span>
+          </div>
+          <span class="text-primary font-weight-bold">249</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">Open_Tickets</p>
+            <span class="material-icons-outlined text-orange">add_shopping_cart</span>
+          </div>
+          <span class="text-primary font-weight-bold">83</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">Answered_Tickets</p>
+            <span class="material-icons-outlined text-green">shopping_cart</span>
+          </div>
+          <span class="text-primary font-weight-bold">79</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">Closed_Tickets</p>
+            <span class="material-icons-outlined text-red">notification_important</span>
+          </div>
+          <span class="text-primary font-weight-bold">56</span>
+        </div>
+
+      </div>
+      <!--Charts , Bargraps and Line graphs-->
+
+      <div class="charts">
+
+        <div class="charts-card">
+          <p class="chart-title">Analysis of Tickets</p>
+          <div id="bar-chart"></div>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">New_Tickets and Closed_Tickets</p>
+          <div id="area-chart"></div>
+        </div>
+
+      </div>
+      <footer>
+        <div class="index-credits">
+          <span class="left">&copy;2021 - A2ZSolutions LLC </span>
+          <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a></span>
+        </div>
+      </footer>
+    </main>
+    <!-- End Main -->
+  </div>
+
+
+  <!-- Scripts -->
+  <!-- ApexCharts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+  <!-- Custom JS -->
+  <script src="scrypts.js"></script>
+  <script>
+    let subMenu = document.getElementById("subMenu");
+    function toggleMenu() {
+      subMenu.classList.toggle("open-menu")
+    }
+
+    let changeIcon = function (icon) {
+      icon.classList.toggle("fa-times")
+    }
+
+  </script>
+</body>
+
+</html>

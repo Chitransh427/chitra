@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Care Login</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/helpdesk_cc.js"></script>
+    <script src="js/url.js"></script>
+
+    <script>
+		$(document).ready(function () {
+			$("#login_form_submit").click(function (e) {
+				e.preventDefault();
+        initLogin();
+			});
+		});
+	</script>
+</head>
+
+<body style="background-image: linear-gradient(white, rgb(108, 174, 249));">
+
+    <!-- <div class="logo">
+        <div align=left><img class="image" src="..\images\logo-in.png" alt="Stores for Everyone" /></div>
+    </div> -->
+    <header>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="loginn">
+                    <div id="orders">
+                        <div class="row">
+                            <h1 align="center">Welcome to Customer Care Services</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10 col-sm-6 col-md-4">
+                <form role="form" method="post" class="form-container mb-3">
+                    <div class="row">
+                        <div class="login">
+                            <h3><span><b>LOGIN</b></span></h3>
+                            
+                            <div class="form-group col-12">
+                                <label class="control-label">Email Id / Phone Number: </label>
+                                <input id="email_id" type="text" name="form-username"
+                                    placeholder="Enter your Email Id / Phone Number" class="form-username form-control"
+                                    required>
+                                <p class="text-danger" style="font-size:medium; display: none" id="error_mail_id"></p>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="control-label">Password:</label>
+                                <input id="password" type="password" name="form-password"
+                                    placeholder="Enter Your Password" class="form-password form-control" required>
+                                <p class="text-danger" style="font-size:medium; display: none" id="error_password"></p>
+                            </div>
+                            <div class="col-12">
+                                <button id="login_form_submit" class="btn btn-primary w-100" type="submit">Login</button>
+                              </div>
+                              <p class="text-danger" style="font-size:medium; display: none" id="error_message"></p>
+                            <!-- <div class="form-group col-12">
+                                <button class="signin" class="btn btn-primary"
+                                    id="login_form_submit" value="Sign in"></button>
+                            </div> -->
+                            <div class="text-center  col-12">
+                                <h6><a href="forgetPassword.html" class="pwd">Forgot password?</a></h6>
+                                <div class="form-group text-left " id="login_form_error" style="display: none;">
+                                    <span class="text-danger" id="spn_error"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="credits">
+            <span class="left">&copy;2021 - A2ZSolutions LLC </span>
+            <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a></span>
+        </div>
+    </footer>
+
+</body>
+
+</html>

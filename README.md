@@ -1,2 +1,0 @@
-# chitra
-##mustakeem khan

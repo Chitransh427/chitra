@@ -80,6 +80,7 @@ body {
   
   .header {
     grid-area: header;
+    width: 94.48%;
     height: 70px;
     background-color: #ffffff;
     display: flex;
