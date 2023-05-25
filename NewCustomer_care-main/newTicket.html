@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>newTicket</title>
     <!--my fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="css/style.css">
@@ -16,6 +18,9 @@
     <link rel="stylesheet" href="styles.css">
 
     <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- add font-awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="js/jquery.min.js"></script>
@@ -67,34 +72,112 @@
 </head>
 
 <body>
-    <nav class="top_navbar">
-        <!-- <div class="logo">
+    <!-- <nav class="top_navbar"> -->
+    <!-- <div class="logo">
             <img class="logo-in" align="left" src="..\images\logo-in.png" alt="Stores for Everyone" />
         </div> -->
-        <div class="username">
+    <!-- <div class="username">
             <span> Hello, <span id="profile_name"></span> !</span>
 
             <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
-            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span>
-            <!-- <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
-        </div>
-    </nav>
+            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span> -->
+    <!-- <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
+    <!-- </div>
+    </nav> -->
 
-    <header>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="loginn">
-                    <div id="orders">
-                        <div class="row">
-                            <h1><b>Welcome to Customer Care Services</b></h1>
+        <div class="hero">
+            <nav class="top_navbar" style="background-color:white;">
+                <div class="bell-icon" style="margin-left: 94%;">
+                    <a>
+                        <i class="fa-solid fa-bell" onclick="changeIcon(this)"></i>
+                    </a>
+
+                </div>
+                <div class="user">
+                    <span> Hello,Abhigyan!</span>
+                </div>
+
+                <img src="image/profile.png" class="user-pic" onclick="toggleMenu()">
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu" style="margin-left:86%;">
+                        <div class="user-info">
+                            <img src="image/profile.png">
+                            <h2>Abigyan Mishra</h2>
+                        </div>
+                        <hr>
+                        <a href="#" class="sub-menu-link">
+                            <img src="image/editprofile.jpg">
+                            <p>Edit Profile</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="image/settings.png">
+                            <p>Settings</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="image/logout.png">
+                            <p>Logout</p>
+                            <span>></span>
+                        </a>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <header>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="loginn">
+                        <div id="orders">
+                            <div class="row">
+                                <h1><b>Welcome to Customer Care Services</b></h1>
+                            </div>
                         </div>
                     </div>
                 </div>
+        </header>
+        <!-- <div class="dropdown"> -->
+
+        <div class="main-cards">
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">New Tickets</p>
+                    <span class="material-icons-outlined text-blue">inventory_2</span>
+                </div>
+                <span class="text-primary font-weight-bold">249</span>
             </div>
-    </header>
-    <div class="dropdown">
-        <!-- <button class="dropbtn">Filter&nbsp;&nbsp;&nbsp;<i class='bx bx-filter'></i></button> -->
-        <!-- <div class="dropdown-content">
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">Open Tickets</p>
+                    <span class="material-icons-outlined text-orange">add_shopping_cart</span>
+                </div>
+                <span class="text-primary font-weight-bold">83</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">Answered Tickets</p>
+                    <span class="material-icons-outlined text-green">shopping_cart</span>
+                </div>
+                <span class="text-primary font-weight-bold">79</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">Closed Tickets</p>
+                    <span class="material-icons-outlined text-red">notification_important</span>
+                </div>
+                <span class="text-primary font-weight-bold">56</span>
+            </div>
+
+        </div>
+
+    <!-- <button class="dropbtn">Filter&nbsp;&nbsp;&nbsp;<i class='bx bx-filter'></i></button> -->
+    <!-- <div class="dropdown-content">
             <select>
                 <option value="0" selected="selected">Filter by Name</option>
                 <option>Ascending Order</option>
@@ -118,87 +201,54 @@
                 <option>Store Front</option>
             </select>
         </div> -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="dropbtn">Filter :</span>
-                <select required name="Type" id="filter" class="form-select" required>
-                    <option selected disabled hidden value="">Select</option>
-                    <option value="filterByDate">Filter By Date</option>
-                    <option value="filterByName">Filter By Name</option>
-                    <option value="filterByTicketNumber">Filter By Ticket Number</option>
-                    <option value="filterByPriority">Filter By Priority</option>
-                    <option value="filterByDepartment">Filter By Department</option>
-                </select>
-            </div>
-            <br>
-            <div id="rowDate" style="display:none;">From
-                <input type="date" id="datefilterfrom" data-date-split-input="true"> To <input type="date"
-                    id="datefilterto" data-date-split-input="true">
-            </div>
-            <input type="text" id="name" onkeyup="myFunction(1,'name', 'newTickets')" placeholder="Search for names.."
-                title="Type in a name" style="display:none;">
-            <input type="text" id="Department" onkeyup="myFunction(3,'Department', 'newTickets')"
-                placeholder="Search for Department" title="Type in a name" style="display:none;">
-            <input type="text" id="Priority" onkeyup="myFunction(6,'Priority', 'newTickets')"
-                placeholder="Search for Priority" title="Type in a name" style="display:none;">
 
-            <input type="text" id="ticketNumber" onkeyup="myFunction(0,'ticketNumber', 'newTickets')"
-                placeholder="Search for ticketNumber" title="Type in a name" style="display:none;">
-            <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <span class="dropbtn">Filter :</span>
+            <select required name="Type" id="filter" class="form-select" required>
+                <option selected disabled hidden value="">Select</option>
+                <option value="filterByDate">Filter By Date</option>
+                <option value="filterByName">Filter By Name</option>
+                <option value="filterByTicketNumber">Filter By Ticket Number</option>
+                <option value="filterByPriority">Filter By Priority</option>
+                <option value="filterByDepartment">Filter By Department</option>
+            </select>
         </div>
+        <br>
+        <div id="rowDate" style="display:none;">From
+            <input type="date" id="datefilterfrom" data-date-split-input="true"> To <input type="date" id="datefilterto"
+                data-date-split-input="true">
+        </div>
+        <input type="text" id="name" onkeyup="myFunction(1,'name', 'newTickets')" placeholder="Search for names.."
+            title="Type in a name" style="display:none;">
+        <input type="text" id="Department" onkeyup="myFunction(3,'Department', 'newTickets')"
+            placeholder="Search for Department" title="Type in a name" style="display:none;">
+        <input type="text" id="Priority" onkeyup="myFunction(6,'Priority', 'newTickets')"
+            placeholder="Search for Priority" title="Type in a name" style="display:none;">
+
+        <input type="text" id="ticketNumber" onkeyup="myFunction(0,'ticketNumber', 'newTickets')"
+            placeholder="Search for ticketNumber" title="Type in a name" style="display:none;">
+        <br>
+    </div>
 
 
-        <!-- <nav class="navigation">
+    <!-- <nav class="navigation">
             <div class="first">
                 <a href="index.html"><span class="all_tickets ">Dashboard </span></a>
                 <a href="newTicket.html" id="current"><span class="new_tickets"> New Tickets </span></a>
                 <a href="openTicket.html"><span class="open_tickets">Open Tickets </span></a>
                 <a href="answeredTicket.html"><span class="answered_tickets">Answered Tickets </span></a> -->
-        <!--<a href="overduedTicket.html"><span class="overdued_tickets">Overdued Tickets </span></a> 
+    <!--<a href="overduedTicket.html"><span class="overdued_tickets">Overdued Tickets </span></a> 
             <a href="tranferredTicket.html"><span class="overdued_tickets">Transferred Tickets </span></a>-->
-        <!-- <a href="closedTicket.html"><span class="closed_tickets">Closed Tickets </span></a>
+    <!-- <a href="closedTicket.html"><span class="closed_tickets">Closed Tickets </span></a>
             </div>
         </nav> -->
 
-       
-      <div class="main-cards">
 
-        <div class="card">
-          <div class="card-inner">
-            <p class="text-primary">New_Tickets</p>
-            <span class="material-icons-outlined text-blue">inventory_2</span>
-          </div>
-          <span class="text-primary font-weight-bold">249</span>
-        </div>
 
-        <div class="card">
-          <div class="card-inner">
-            <p class="text-primary">Open_Tickets</p>
-            <span class="material-icons-outlined text-orange">add_shopping_cart</span>
-          </div>
-          <span class="text-primary font-weight-bold">83</span>
-        </div>
-
-        <div class="card">
-          <div class="card-inner">
-            <p class="text-primary">Answered_Tickets</p>
-            <span class="material-icons-outlined text-green">shopping_cart</span>
-          </div>
-          <span class="text-primary font-weight-bold">79</span>
-        </div>
-
-        <div class="card">
-          <div class="card-inner">
-            <p class="text-primary">Closed_Tickets</p>
-            <span class="material-icons-outlined text-red">notification_important</span>
-          </div>
-          <span class="text-primary font-weight-bold">56</span>
-        </div>
-
-      </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- <nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- <nav class="navbar navbar-default navbar-inverse" role="navigation">
             <div class="container-fluid" id="navfluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
@@ -219,13 +269,13 @@
                         <li class="nav-item">
                             <a href="answeredTicket.html">Answered Tickets</a>
                         </li> -->
-        <!-- <li class="nav-item">
+    <!-- <li class="nav-item">
                         <a href="overduedTicket.html">Overdued Tickets</a>
                     </li>-->
-        <!-- <li class="nav-item">
+    <!-- <li class="nav-item">
                         <a href="tranferredTicket.html">Transferred Tickets</a>
                     </li> -->
-        <!-- <li class="nav-item">
+    <!-- <li class="nav-item">
                             <a href="closedTicket.html">Closed Tickets</a>
                         </li>
                     </ul>
@@ -234,65 +284,81 @@
         </nav> -->
 
 
-        <!-- <center> -->
-        <div class="sort">
-            <!-- <input class="filter" type="text" placeholder="Filter By Name" id="productname"> -->
-            <!-- <button class="filter">High Priority</button> -->
-            <!-- <button class="filter">Normal Priority</button> -->
-            <!-- <button class="filter">Filter -->
-            <!-- </button> -->
+    <!-- <center> -->
+    <div class="sort">
+        <!-- <input class="filter" type="text" placeholder="Filter By Name" id="productname"> -->
+        <!-- <button class="filter">High Priority</button> -->
+        <!-- <button class="filter">Normal Priority</button> -->
+        <!-- <button class="filter">Filter -->
+        <!-- </button> -->
+    </div>
+    <!-- </center> -->
+
+    <div class="board">
+        <table width="100%">
+            <thead>
+                <tr class="rem1 odd" id="newHead" style="background-color:  #004a80;color: whitesmoke;">
+                    <th>Ticket Number </th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <!-- <th>Type</th> -->
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Ticket Date</th>
+                    <th>Assign</th>
+                </tr>
+            <tbody id="newTickets">
+
+                </tr>
+            </tbody>
+
+            </thead>
+        </table>
+    </div>
+    <footer>
+        <div class="index-credits">
+            <span class="left">&copy;2021 - A2ZSolutions LLC </span>
+            <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a></span>
         </div>
-        <!-- </center> -->
+    </footer>
+    <script>
+        const icn = document.querySelector("basic");
+        const text = document.querySelector("#loghover");
 
-        <div class="board">
-            <table width="100%">
-                <thead>
-                    <tr class="rem1 odd" id="newHead">
-                        <th>Ticket Number </th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Department</th>
-                        <!-- <th>Type</th> -->
-                        <th>Subject</th>
-                        <th>Status</th>
-                        <th>Priority</th>
-                        <th>Ticket Date</th>
-                        <th>Assign</th>
-                    </tr>
-                <tbody id="newTickets">
+        icn.addEventListener("mouseenter", () => {
+            text.style.display = "inline"
+        })
 
-                    </tr>
-                </tbody>
+        icn.addEventListener("mouseleave", () => {
+            text.style.display = "none"
+        })
 
-                </thead>
-            </table>
-        </div>
-        <footer>
-            <div class="index-credits">
-                <span class="left">&copy;2021 - A2ZSolutions LLC </span>
-                <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a></span>
-            </div>
-        </footer>
-        <script>
-            const icn = document.querySelector("basic");
-            const text = document.querySelector("#loghover");
+    </script>
+    <script>
+        window.addEventListener('load', (event) => {
 
-            icn.addEventListener("mouseenter", () => {
-                text.style.display = "inline"
-            })
+            getNewTickets();
 
-            icn.addEventListener("mouseleave", () => {
-                text.style.display = "none"
-            })
+        })
+    </script>
+    <!-- to toggle user icon  -->
+    <script>
+        let sub_menu_wrap = document.querySelector(".sub-menu-wrap");
+        let btn = document.querySelector(".user-pic");
+        const toggleMenu = () =>
+            sub_menu_wrap.classList.toggle("open-menu");
 
-        </script>
-        <script>
-            window.addEventListener('load', (event) => {
+        window.addEventListener("click", function (e) {
+            if (!btn.contains(e.target)) sub_menu_wrap.classList.remove("open-menu")
+        });
 
-                getNewTickets();
+        let changeIcon = function (icon) {
+            icon.classList.toggle("fa-times")
+        }
 
-            })
-        </script>
+    </script>
 </body>
 
 </html>

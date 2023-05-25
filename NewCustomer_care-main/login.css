@@ -1,0 +1,171 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e6e8ed;
+    color: #666666;
+    font-family: "Montserrat", sans-serif;
+  } */
+
+.credits {
+    padding: 20px 60px 20px 60px;
+    font-size: 14px;
+    background-image: linear-gradient(rgb(211, 226, 224), rgb(46, 44, 44));
+    color: rgb(3, 4, 4);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 50, 0.3);
+    margin-top: 80px;
+    margin-bottom: 0rem;
+}
+
+.credits .right {
+    float: right;
+    text-align: right !important;
+}
+
+.credits a {
+    text-align: right !important;
+    color: rgb(0, 0, 0);
+}
+
+.credits a:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.loginbody {
+    /* background-image: url("image/img1.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; */
+    background: rgb(224, 237, 235);
+}
+
+.input {
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: rgb(5, 5, 5);
+    /* padding: #fff; */
+    padding: 0 0 0 45px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* i{
+    position:relative;
+    top:-33px;
+    left:17px;
+    color:black;
+}
+.f {
+    display:flex;
+    flex-direction:row;
+} */
+header {
+    text-align: center;
+    padding: 0px;
+}
+
+h1 {
+    color: rgb(165, 135, 135);
+}
+
+button {
+    background: #1e3478;
+    width: 100%;
+    border: none;
+    color: white;
+    height: 45px;
+    font-size: 19px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 50, 0.3);
+}
+
+.login {
+    margin-left: 90px;
+}
+
+button:hover {
+    color: #fffefe;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+/* css for signup form */
+.container-fluid1 {
+    /* margin-bottom:2px; */
+    font-size: 47px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 22px;
+    margin: 20px;
+    padding-bottom: 28px;
+    color: #050505;
+    text-align: center;
+}
+
+.signup-box {
+    width: 380px;
+    height: 695px;
+    background: rgb(232, 227, 227);
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 2px 4px 10px 2px rgba(0, 0, 50, 0.3);
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.signup-box h1 {
+    text-align: center;
+    padding-top: 15px;
+    color: #1a1c1c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.signup-box form {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.signup-box form label {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.signup-box form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 7px;
+    border: none;
+    border-radius: 30px;
+    border: 1px solid rgb(222, 219, 219);
+    background-color: rgb(255, 253, 253);
+    text-decoration: none;
+    outline: none;
+}
+
+#submit {
+    margin-top: 28px;
+}
+.signup-box p{
+    font-size: 14px;
+}
+
+p {
+    text-align: center;
+    font-size: 17px;
+}
+
+img {
+    text-align: center;
+    vertical-align: middle;
+    width: 70px;
+    margin-top: -30px;
+    border-radius: 100%;
+    margin-left: 155px;
+    /* display: block; */
+    /* margin-left: auto;
+    margin-right: auto; */
+}

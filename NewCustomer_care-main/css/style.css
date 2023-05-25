@@ -1,5 +1,6 @@
 html {
     background-color: rgb(255, 255, 255);
+    font-family: "Montserrat", sans-serif;
 }
 
 .row h3 {
@@ -9,7 +10,8 @@ html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .row{
-    margin-top:  20px;
+    margin-top: 0%;
+    font-family: "Montserrat", sans-serif;
 }
 center .sort{
     margin-top: 28px;
@@ -20,6 +22,8 @@ center .sort{
     background-color: rgb(231, 231, 231);
     border-radius: 14px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
 }
 
 #loghover {
@@ -42,6 +46,7 @@ center .sort{
     font-size: 16px;
     margin-bottom: 7px;
     text-align: left;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .form-submit {
@@ -300,18 +305,18 @@ ul.navbar-nav li {
 }
 
 .content-wrapper {
-    padding: 15px;
+    padding: 18px;
 }
 
-#wrapper_container .dashboard{
-    background-color: #dddddd;
-    color: #000;
+/* #wrapper_container .dashboard{
+    background-color: #ffffff;
+    color: #eae9e9;
     outline: none;
     border: none;
     border-radius: 5px;
     padding: 7px;
     float: right;
-}
+} */
 
 .closeButton{
     background-color: rgb(178, 214, 255);
@@ -1204,11 +1209,11 @@ a.Icon:hover {
 
 #content {
     clear: both;
-    border: 1px solid #aaa;
+    border: 10px solid rgb(163, 177, 204);
     /* border-top:none;
     border-bottom:3px solid #bbb; */
     padding: 10px 10px 20px 10px;
-    background: #f3f3f3;
+    background: #fdfdfd;
 }
 
 #content a {

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Care Portal</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/boxicons.css">
+    <link rel="stylesheet" href="css/boxicons.min.css">
+
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/helpdesk_cc.js"></script>
+    <script src="js/url.js"></script>
+
+    <script>
+        window.onload = function () {
+            if (localStorage.getItem("token") == null) {
+                window.location.href = window.location.protocol + "//" + window.location.host + "/customerCare_login.html";
+
+            } else {
+                getUserInfo();
+            }
+        }
+    </script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search).get("ticketNumber");
+        window.addEventListener('load', () => {
+            getTicketDetails(urlParams);
+            getAgentList();
+        })
+        function viewReassign() {
+            document.getElementById("assign").style.display = "block";
+            document.getElementById("reply").style.display = "none";
+        }
+        function viewReply() {
+            document.getElementById("assign").style.display = "none";
+            document.getElementById("reply").style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <nav class="top_navbar"> -->
+    <!-- <div class="logo">
+            <img class="logo-in" align="left" src="..\images\logo-in.png" alt="Stores for Everyone" />
+        </div> -->
+    <!-- <div class="username">
+            <span> Hello, <span id="profile_name"></span> !</span>
+
+            <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
+            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span> -->
+    <!-- <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
+    <!-- </div>
+    </nav> -->
+    <div class="hero">
+        <nav class="top_navbar" style="background-color:white;">
+            <div class="bell-icon" style="margin-left: 94%;">
+                <a>
+                    <i class="fa-solid fa-bell" onclick="changeIcon(this)"></i>
+                </a>
+
+            </div>
+            <div class="user">
+                <span> Hello,Abhigyan!</span>
+            </div>
+            <!-- <div class="username">
+                <span> Hello, <span id="profile_name"></span> !</span>
+                <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
+                <span class="text-on-hover" id="loghover" style="display: none;">Logout</span>
+            </div> -->
+
+            <img src="image/profile.png" class="user-pic" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu" style="margin-left:86%;">
+                    <div class="user-info">
+                        <img src="image/profile.png">
+                        <h2>Abigyan Mishra</h2>
+                    </div>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                        <img src="image/editprofile.jpg">
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="image/settings.png">
+                        <p>Settings</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="image/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    <header>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="loginn">
+                    <div id="orders">
+                        <div class="row">
+                            <h1><b>Welcome to Customer Care Services</b></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <div class="main-ot">OPEN TICKETS</div>
+
+
+    <div class="content-wrapper" id="wrapper_container">
+        <!-- <h2>Ticket Number - <a href="chat.html" class="no" id="ticketid"> ticket_id </a></h2> -->
+        <a href="index.html"><button class="dashboard" style="margin-bottom:4px ;">↩</button></a>
+        <br>
+        <center class="tickethead">Ticket Details</center>
+
+
+        <div id="content" class="incontent" style="color:black;">
+            <table width="940" cellpadding="2" cellspacing="0" border="0">
+                <tr>
+                    <td width="50%" class="has_bottom_border">
+                        <h2><i class="icon-refresh"></i>
+                            <p id="ticketNo"></p>
+                        </h2>
+                    </td>
+                    <td width="50%" class="right_align has_bottom_border">
+                    </td>
+                </tr>
+            </table>
+            <table class="ticket_info" cellspacing="0" cellpadding="0" width="100%" border="0">
+                <tr>
+                    <td width="50">
+                        <table border="0" cellspacing="" cellpadding="4" width="100%">
+                            <tr>
+                                <th width="100">Name:</th>
+                                <td id="username"></td>
+                            </tr>
+                            <tr>
+                                <th width="100">Status:</th>
+                                <td id="status"></td>
+                            </tr>
+                            <tr id="hidePrior">
+                                <th width="100">Priority:</th>
+                                <td id="getPriority"></td>
+                            </tr>
+                            <tr>
+                                <th>Assigned To:</th>
+                                <td id="assignedTo"></td>
+                            </tr>
+
+
+                            <!-- <tr>
+                                    <th>Type:</th>
+                                    <td id="type"></td>
+                                </tr> -->
+                        </table>
+                    </td>
+                    <td width="50%">
+                        <table border="0" cellspacing="" cellpadding="4" width="100%">
+
+                            <tr>
+                                <th>Email:</th>
+                                <td id="email"> </td>
+                            </tr>
+                            <tr>
+                                <th>Department:</th>
+                                <td id="department"></td>
+                            </tr>
+                            <tr id="hidePriority">
+                                <th>Change Priority:</th>
+                                <td id="priority">
+                                    <select id="prior" name="priority">
+                                        <option value="high">HIGH</option>
+                                        <option value="medium">MEDIUM</option>
+                                        <option value="low">LOW</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Subject:</th>
+                                <td id="Subject"></td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table class="ticket_info" cellspacing="0" cellpadding="0" width="100%" border="0">
+                <tr>
+                    <td width="33%">
+                        <table cellspacing="0" cellpadding="4" width="100%" border="0">
+                            <tr>
+                                <th nowrap>Last Response:</th>
+                                <td id="repliedOn">-</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="33%">
+                        <table cellspacing="0" cellpadding="4" width="100%" border="0">
+                            <tr id="closedDate" style="display: none;">
+                                <th nowrap>Closed Date:</th>
+                                <td id="closedOn">-</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="33%">
+                        <table cellspacing="0" cellpadding="4" width="100%" border="0">
+                            <tr>
+                                <th nowrap>Create Date</th>
+                                <td id="createDate"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <hr>
+            <table class="ticket_info" id="reassignmessage" cellspacing="0" cellpadding="0" width="100%" border="0">
+                <tr>
+                    <td width="33%">
+                        <table cellspacing="0" cellpadding="4" width="100%" border="0">
+                            <tr>
+                                <th nowrap>Reassigned Message:</th>
+                                <td id="reassignedmsg"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <hr><br>
+            <table style="border: 0;" cellspacing="0" cellpadding="3">
+                <tr>
+                    <td width="100">
+                        <strong>From:</strong>
+                    </td>
+                    <td width="765">
+                        <p id="Cname"></p>
+                    </td>
+                </tr>
+                <!-- <tr>
+                        <td width="100">
+                            <strong>Subject:</strong>
+                        </td>
+                        <td width="765">
+                            <p id="Subject"></p>
+                        </td>
+                    </tr> -->
+                <tr>
+                    <td width="100">
+                        <strong>Message:</strong>
+                    </td>
+                    <td width="765">
+                        <p id="msg"></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <div id="response_options">
+                <div id="choose">
+                    <!-- <ul> -->
+                    <a id="reply_tab"><button class="choosebtn" onclick="viewReply()">Reply
+                        </button></a>
+                    <!-- <li><a id="note_tab" href="#">Post Internal Note</a></li> -->
+                    <!-- <li><a id="transfer_tab" href="#transfer">Department Transfer</a></li> -->
+                    <a id="assign_tab"><button class="choosebtn" onclick="viewReassign()">Reassign
+                        </button></a>
+                </div>
+                <div id="option">
+                    <a id="assign_to_me" style="display: none;"><button class="choosebtn2"
+                            onclick="assignToMe(urlParams,localStorage.getItem('agentname'))">Assign To Me
+                        </button></a>
+                </div>
+                <!-- </ul> -->
+                <div id="reply">
+                    <!-- <input type="hidden" name="_CSRFToken_"
+                            value="YjY3NGZlZDA0OTQ0OTFiMzMwZWI5MmEzNmExMjk0ZTg0MzNlN2I3OA==" /> <input type="hidden"
+                            name="id" value="20971">
+                        <input type="hidden" name="msgId" value="82056">
+                        <input type="hidden" name="a" value="reply">
+                        <span class="error"></span> -->
+                    <table style="border: 0;" cellspacing="0" cellpadding="3">
+                        <tr>
+                            <td width="100">
+                                <strong>To:</strong>
+                            </td>
+                            <td width="765">
+                                <!-- &nbsp;&nbsp;&nbsp; -->
+                                <label>
+                                    <!-- <input type='checkbox' value='1' name="emailreply" id="remailreply"
+                                            checked="checked"> Email Reply -->
+                                    <p id="Email"></p>
+                                </label>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                                <td width="100">
+                                    <label><strong>Subject:</strong></label>
+                                </td>
+                                <td width="765">
+                                    <p id="Subject"></p>
+                                </td>
+                            </tr>-->
+                        <tr>
+                            <td width="100">
+                                <label><strong>Message:</strong></label>
+                            </td>
+                            <td>
+                                <textarea name="response" style="margin-top:6px ;" id="response" cols="50"
+                                    rows="9"></textarea>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                                <td width="160">
+                                    <label for="attachment">Attachments:</label>
+                                </td>
+                                <td width="765" id="reply_form_attachments" class="attachments">
+                                     <div class="canned_attachments">
+                                    </div>
+                                    <div class="uploads">
+                                    </div> 
+                                    <div class="file_input">
+                                        <input type="file" class="multifile" name="attachments[]" size="30" value="" />
+                                    </div>
+                                </td>
+                            </tr> -->
+                    </table>
+                    <p style="padding-left:165px;">
+                        <!-- <input id="btn_sm" onclick="postReply(urlParams)" value="Reply"> -->
+                        <input class="btn_sm" type="submit" style="margin-left: -55px;" onclick="postReply(urlParams)"
+                            value="Reply">
+                        <!-- <input class="btn_sm" type="reset" value="Reset"> -->
+                        <!-- <p id="replymsg"></p> -->
+                    <h3 id="okreply"></h3>
+
+                    </p>
+                </div>
+
+                <div id="assign">
+                    <table style="border: 0;" cellspacing="0" cellpadding="3">
+
+                        <tr>
+                            <td width="160">
+                                <label for="assignId"><strong>Assignee:</strong></label>
+                            </td>
+                            <td width="765">
+                                <!-- <span class="faded">Ticket is currently assigned to <b>Ankur</b></span> <br> -->
+                                <select id="assignId" name="assignId">
+                                    <!-- <option value="0" selected="selected">&mdash; Select Staff Member OR a Team
+                                            &mdash;
+                                        </option>
+                                        <option id="agentList"></option> -->
+                                    <!-- <option>Sahej Hora</option>
+                                        <option>Alice Khan</option>
+                                        <option>Sanchita</option>
+                                        <option>Alka</option>
+                                        <option>Ritu Sharma</option>
+                                        <option>Yash Jain</option>
+                                        <option>Jahanvi Bharadwaj</option> -->
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="160">
+                                <label for="assignId"><strong>Reassign Reason:</strong></label>
+                            </td>
+                            <td width="160">
+                                <select required name="Type" id="reasonr" class="form-select" required>
+                                    <option selected disabled hidden value="">Select Reason</option>
+                                    <option value="expertise">Expertise</option>
+                                    <option value="workload">Workload</option>
+                                    <option value="priority_work">Priority</option>
+                                    <option value="availability">Agent availability</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="160">
+                                <label><strong>Comments:</strong><span class='error'>&nbsp;</span></label>
+                            </td>
+                            <td width="765">
+                                <span class="faded">Elaborate reasons for the assignment or instructions for
+                                    assignee.</span>
+                                <span class="error">*&nbsp;</span><br>
+                                <textarea name="assign_comments" id="assign_comments" cols="80" rows="7"
+                                    wrap="soft"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="padding-left:165px;">
+                        <input class="btn_sm" type="submit" value="Reassign" onclick="reassignTicket(urlParams)">
+                        <!-- <input class="btn_sm" type="reset" value="Reset"> -->
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="index-credits">
+            <span class="left">&copy;2021 - A2ZSolutions LLC </span>
+            <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a></span>
+        </div>
+    </footer>
+    <script>
+        const icn = document.querySelector("basic");
+        const text = document.querySelector("#loghover");
+
+        icn.addEventListener("mouseenter", () => {
+            text.style.display = "inline"
+        })
+
+        icn.addEventListener("mouseleave", () => {
+            text.style.display = "none"
+        })
+
+    </script>
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+    function toggleMenu() {
+        subMenu.classList.toggle("open-menu")
+    }
+
+    let changeIcon = function (icon) {
+        icon.classList.toggle("fa-times")
+    }
+
+</script>
+</body>
+
+</html>

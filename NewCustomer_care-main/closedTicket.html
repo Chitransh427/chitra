@@ -10,16 +10,36 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/boxicons.css">
     <link rel="stylesheet" href="css/boxicons.min.css">
+
+    <style>
+        .priority-high {
+            background-color: rgb(248, 150, 150) !important;
+            color: red;
+        }
+
+        .priority-medium {
+            background-color: rgb(249, 249, 158) !important;
+            color: yellow;
+        }
+
+        .priority-low {
+            background-color: rgb(150, 227, 156) !important;
+            color: #004a80;
+        }
+    </style>
     <!--my fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <link rel="stylesheet" href="mystyle.css">
+    <!-- add font-awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="scrypts.js">
     <link rel="stylesheet" href="styles.css">
 
-     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="/js/url.js"></script>
@@ -72,18 +92,60 @@
 </head>
 
 <body>
-    <nav class="top_navbar">
-        <!-- <div class="logo">
+    <!-- <nav class="top_navbar"> -->
+    <!-- <div class="logo">
             <img class="logo-in" align="left" src="..\images\logo-in.png" alt="Stores for Everyone" />
         </div> -->
-        <div class="username">
+    <!-- <div class="username">
             <span> Hello, <span id="profile_name"></span> !</span>
 
             <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
-            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span>
-            <!-- <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
-        </div>
-    </nav>
+            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span> -->
+    <!-- <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
+    <!-- </div>
+    </nav> -->
+
+    <div class="hero">
+        <nav class="top_navbar" style="background-color:white;">
+            <div class="bell-icon" style="margin-left: 94%;">
+                <a>
+                    <i class="fa-solid fa-bell" onclick="changeIcon(this)"></i>
+                </a>
+
+            </div>
+            <div class="user">
+                <span> Hello,Abhigyan!</span>
+            </div>
+
+            <img src="image/profile.png" class="user-pic" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu" style="margin-left:83%;">
+                    <div class="user-info">
+                        <img src="image/profile.png">
+                        <h2>Abigyan Mishra</h2>
+                    </div>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                        <img src="image/editprofile.jpg">
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="image/settings.png">
+                        <p>Settings</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="image/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
     <header>
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -123,7 +185,41 @@
             </select>
         </div>
     </div> -->
+        <div class="main-cards">
 
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">New Tickets</p>
+                    <span class="material-icons-outlined text-blue">inventory_2</span>
+                </div>
+                <span class="text-primary font-weight-bold">249</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">Open Tickets</p>
+                    <span class="material-icons-outlined text-orange">add_shopping_cart</span>
+                </div>
+                <span class="text-primary font-weight-bold">83</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">Answered Tickets</p>
+                    <span class="material-icons-outlined text-green">shopping_cart</span>
+                </div>
+                <span class="text-primary font-weight-bold">79</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">Closed Tickets</p>
+                    <span class="material-icons-outlined text-red">notification_important</span>
+                </div>
+                <span class="text-primary font-weight-bold">56</span>
+            </div>
+
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <span class="dropbtn">Filter :</span>
@@ -163,41 +259,6 @@
             </div>
         </nav> -->
 
-        <div class="main-cards">
-
-            <div class="card">
-              <div class="card-inner">
-                <p class="text-primary">New_Tickets</p>
-                <span class="material-icons-outlined text-blue">inventory_2</span>
-              </div>
-              <span class="text-primary font-weight-bold">249</span>
-            </div>
-    
-            <div class="card">
-              <div class="card-inner">
-                <p class="text-primary">Open_Tickets</p>
-                <span class="material-icons-outlined text-orange">add_shopping_cart</span>
-              </div>
-              <span class="text-primary font-weight-bold">83</span>
-            </div>
-    
-            <div class="card">
-              <div class="card-inner">
-                <p class="text-primary">Answered_Tickets</p>
-                <span class="material-icons-outlined text-green">shopping_cart</span>
-              </div>
-              <span class="text-primary font-weight-bold">79</span>
-            </div>
-    
-            <div class="card">
-              <div class="card-inner">
-                <p class="text-primary">Closed_Tickets</p>
-                <span class="material-icons-outlined text-red">notification_important</span>
-              </div>
-              <span class="text-primary font-weight-bold">56</span>
-            </div>
-    
-          </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <!-- <nav class="navbar navbar-default navbar-inverse" role="navigation">
@@ -242,7 +303,7 @@
         <div class="board">
             <table width="100%">
                 <thead>
-                    <tr class="rem1 odd" id="closeHead">
+                    <tr class="rem1 odd" id="closeHead" style="background-color:  #004a80;color: whitesmoke;">
                         <th>Ticket Number </th>
                         <th>Name</th>
                         <th>Email</th>
@@ -280,6 +341,22 @@
             icn.addEventListener("mouseleave", () => {
                 text.style.display = "none"
             })
+
+        </script>
+        <!-- to toggle user icon  -->
+        <script>
+            let sub_menu_wrap = document.querySelector(".sub-menu-wrap");
+            let btn = document.querySelector(".user-pic");
+            const toggleMenu = () =>
+                sub_menu_wrap.classList.toggle("open-menu");
+
+            window.addEventListener("click", function (e) {
+                if (!btn.contains(e.target)) sub_menu_wrap.classList.remove("open-menu")
+            });
+
+            let changeIcon = function (icon) {
+                icon.classList.toggle("fa-times")
+            }
 
         </script>
         <script>

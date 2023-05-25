@@ -315,6 +315,110 @@ function getOpenTickets() {
   xmlhttp1.send();
 }
 
+// function getAnsweredTickets() {
+//   var xmlhttp1;
+//   try {
+//     xmlhttp1 = new XMLHttpRequest();
+//   } catch (e) {
+//     try {
+//       xmlhttp1 = new ActiveXObject("Msxml2.XMLHTTP");
+//     } catch (e) {
+//       try {
+//         xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
+//       } catch (e) {
+//         alert("BROWSER BROKE");
+//         return false;
+//       }
+//     }
+//   }
+//   xmlhttp1.open("GET", baseurl + "/helpdeskcc" + "/getAnsweredTickets", true);
+//   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+//   xmlhttp1.setRequestHeader(
+//     "Authorization",
+//     "Bearer " + localStorage.getItem("token")
+//   );
+//   xmlhttp1.onreadystatechange = function () {
+//     if (
+//       this.status == 200 &&
+//       this.responseText != null &&
+//       this.responseText != ""
+//     ) {
+//       var res = JSON.parse(this.responseText);
+//       var response = JSON.parse(res.response);
+
+//       tableData = "";
+//       {
+//         if (response.length > 0) {
+//           document.getElementById("answerHead").style.display = "revert";
+//           for (i = 0; i < response.length; i++) {
+//             if (i % 2 == 0) {
+//               tableData += "<tr " + ' class = "rem1 even">';
+//               tableData +=
+//                 '<td class="invert"><a id="link" onclick="startChat(' +
+//                 response[i].ticketNumber +
+//                 ')" class="approve"><u>' +
+//                 response[i].ticketNumber +
+//                 "</u></a></td>";
+//               tableData += '<td class="invert">' + response[i].name + "</td>";
+//               tableData += '<td class="invert">' + response[i].email + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].department + "</td>";
+//               // tableData += '<td class="invert">' + response[i].type + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].subject + "</td>";
+//               tableData += '<td class="invert">' + response[i].status + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].priority + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].timeStamp + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].repliedDate + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].assignedTo + "</td>";
+//             } else {
+//               tableData +=
+//                 "<tr id = " +
+//                 response[i].ticketNumber +
+//                 ' class = "rem1' +
+//                 [i] +
+//                 ' odd">';
+//               tableData +=
+//                 '<td class="invert"><a id="link" onclick="startChat(' +
+//                 response[i].ticketNumber +
+//                 ')" class="approve"><u>' +
+//                 response[i].ticketNumber +
+//                 "</u></a></td>";
+//               tableData += '<td class="invert">' + response[i].name + "</td>";
+//               tableData += '<td class="invert">' + response[i].email + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].department + "</td>";
+//               // tableData += '<td class="invert">' + response[i].type + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].subject + "</td>";
+//               tableData += '<td class="invert">' + response[i].status + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].priority + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].timeStamp + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].repliedDate + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].assignedTo + "</td>";
+//             }
+//           }
+//           document.getElementById("answeredTickets").innerHTML = tableData;
+//         } else {
+//           document.getElementById("answerHead").style.display = "none";
+//           document.getElementById("answeredTickets").style.textAlign = "center";
+//           document.getElementById("answeredTickets").innerHTML =
+//             "NO ANSWERED TICKETS YET";
+//         }
+//       }
+//     }
+//   };
+//   xmlhttp1.send();
+// }
+
 function getAnsweredTickets() {
   var xmlhttp1;
   try {
@@ -351,60 +455,61 @@ function getAnsweredTickets() {
         if (response.length > 0) {
           document.getElementById("answerHead").style.display = "revert";
           for (i = 0; i < response.length; i++) {
-            if (i % 2 == 0) {
-              tableData += "<tr " + ' class = "rem1 even">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
-            } else {
-              tableData +=
-                "<tr id = " +
-                response[i].ticketNumber +
-                ' class = "rem1' +
-                [i] +
-                ' odd">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
+            var rowClass = i % 2 === 0 ? "even" : "odd";
+            var priority = response[i].priority;
+            switch (priority) {
+              case "high":
+                rowClass += " priority-high";
+                break;
+              case "medium":
+                rowClass += " priority-medium";
+                break;
+              case "low":
+                rowClass += " priority-low";
+                break;
+              default:
+                break;
             }
+            var status = response[i].status;
+            switch (status) {
+              case "open":
+                rowClass += " status-open";
+                break;
+              case "closed":
+                rowClass += " status-closed";
+                break;
+              case "answered":
+                rowClass += " status-answered";
+                break;
+              case "new":
+                rowClass += " status-new";
+                break;
+              default:
+                break;
+            }
+            tableData += "<tr class='rem1 " + rowClass + "'>";
+            tableData +=
+              '<td class="invert"><a id="link" onclick="startChat(' +
+              response[i].ticketNumber +
+              ')" class="approve"><u>' +
+              response[i].ticketNumber +
+              "</u></a></td>";
+            tableData += '<td class="invert">' + response[i].name + "</td>";
+            tableData += '<td class="invert">' + response[i].email + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].department + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].subject + "</td>";
+            tableData += '<td class="invert">' + response[i].status + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].priority + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].timeStamp + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].repliedDate + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].assignedTo + "</td>";
+            tableData += "</tr>";
           }
           document.getElementById("answeredTickets").innerHTML = tableData;
         } else {
@@ -418,6 +523,7 @@ function getAnsweredTickets() {
   };
   xmlhttp1.send();
 }
+
 
 function getClosedTickets() {
   var xmlhttp1;
@@ -455,65 +561,108 @@ function getClosedTickets() {
         if (response.length > 0) {
           document.getElementById("closeHead").style.display = "revert";
           for (i = 0; i < response.length; i++) {
-            if (i % 2 == 0) {
-              tableData += "<tr " + ' class = "rem1 even">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].closedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
-            } else {
-              tableData +=
-                "<tr id = " +
-                response[i].ticketNumber +
-                ' class = "rem1' +
-                [i] +
-                ' odd">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].closedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
+            var rowClass = i % 2 === 0 ? "even" : "odd";
+            var priority = response[i].priority;
+            switch (priority) {
+              case "high":
+                rowClass += " priority-high";
+                break;
+              case "medium":
+                rowClass += " priority-medium";
+                break;
+              case "low":
+                rowClass += " priority-low";
+                break;
+              default:
+                break;
             }
+            tableData += "<tr class='rem1 " + rowClass + "'>";
+            tableData +=
+              '<td class="invert"><a id="link" onclick="startChat(' +
+              response[i].ticketNumber +
+              ')" class="approve"><u>' +
+              response[i].ticketNumber +
+              "</u></a></td>";
+            tableData += '<td class="invert">' + response[i].name + "</td>";
+            tableData += '<td class="invert">' + response[i].email + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].department + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].subject + "</td>";
+            tableData += '<td class="invert">' + response[i].status + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].priority + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].timeStamp + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].repliedDate + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].closedDate + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].assignedTo + "</td>";
+            tableData += "</tr>";
           }
+
+          // for (i = 0; i < response.length; i++) {
+          //   if (i % 2 == 0) {
+          //     tableData += "<tr " + ' class = "rem1 even">';
+          //     tableData +=
+          //       '<td class="invert"><a id="link" onclick="startChat(' +
+          //       response[i].ticketNumber +
+          //       ')" class="approve"><u>' +
+          //       response[i].ticketNumber +
+          //       "</u></a></td>";
+          //     tableData += '<td class="invert">' + response[i].name + "</td>";
+          //     tableData += '<td class="invert">' + response[i].email + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].department + "</td>";
+          //     // tableData += '<td class="invert">' + response[i].type + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].subject + "</td>";
+          //     tableData += '<td class="invert">' + response[i].status + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].priority + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].timeStamp + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].repliedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].closedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].assignedTo + "</td>";
+          //   } else {
+          //     tableData +=
+          //       "<tr id = " +
+          //       response[i].ticketNumber +
+          //       ' class = "rem1' +
+          //       [i] +
+          //       ' odd">';
+          //     tableData +=
+          //       '<td class="invert"><a id="link" onclick="startChat(' +
+          //       response[i].ticketNumber +
+          //       ')" class="approve"><u>' +
+          //       response[i].ticketNumber +
+          //       "</u></a></td>";
+          //     tableData += '<td class="invert">' + response[i].name + "</td>";
+          //     tableData += '<td class="invert">' + response[i].email + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].department + "</td>";
+          //     // tableData += '<td class="invert">' + response[i].type + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].subject + "</td>";
+          //     tableData += '<td class="invert">' + response[i].status + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].priority + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].timeStamp + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].repliedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].closedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].assignedTo + "</td>";
+          //   }
+          // }
           document.getElementById("closedTickets").innerHTML = tableData;
         } else {
           document.getElementById("closeHead").style.display = "none";
@@ -639,11 +788,11 @@ function assignToMe(ticketNumber, name) {
   xmlhttp1.open(
     "POST",
     baseurl +
-      "/helpdeskcc" +
-      "/updateNewTickets?ticketNumber=" +
-      ticketNumber +
-      "&name=" +
-      name,
+    "/helpdeskcc" +
+    "/updateNewTickets?ticketNumber=" +
+    ticketNumber +
+    "&name=" +
+    name,
     true
   );
   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");
@@ -788,7 +937,7 @@ function getTicketDetails(ticketNumber) {
       document.getElementById("Subject").innerHTML = response.subject;
       document.getElementById("createDate").innerHTML = response.timeStamp;
       if (response.repliedDate != null) {
-      document.getElementById("repliedOn").innerHTML = response.repliedDate;
+        document.getElementById("repliedOn").innerHTML = response.repliedDate;
       } else {
         document.getElementById("repliedOn").innerHTML = "not responded yet";
       }
@@ -844,11 +993,11 @@ function postReply(ticketNumber) {
   xmlhttp1.open(
     "POST",
     baseurl +
-      "/helpdeskcc" +
-      "/updateOpenTickets?ticketNumber=" +
-      ticketNumber +
-      "&priority=" +
-      priority,
+    "/helpdeskcc" +
+    "/updateOpenTickets?ticketNumber=" +
+    ticketNumber +
+    "&priority=" +
+    priority,
     true
   );
   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");
@@ -900,10 +1049,10 @@ function reassignTicket(ticketNumber) {
   xmlhttp1.open(
     "POST",
     baseurl +
-      "/helpdeskcc/reassignTicket?ticketNumber=" +
-      ticketNumber +
-      "&emailId=" +
-      assignedTo,
+    "/helpdeskcc/reassignTicket?ticketNumber=" +
+    ticketNumber +
+    "&emailId=" +
+    assignedTo,
     true
   );
   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");
@@ -1039,6 +1188,109 @@ function getOpenTicketsOfAgent(agent) {
   xmlhttp1.send();
 }
 
+// function getAnsweredTicketsOfAgent(agent) {
+//   var xmlhttp1;
+//   try {
+//     xmlhttp1 = new XMLHttpRequest();
+//   } catch (e) {
+//     try {
+//       xmlhttp1 = new ActiveXObject("Msxml2.XMLHTTP");
+//     } catch (e) {
+//       try {
+//         xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
+//       } catch (e) {
+//         alert("BROWSER BROKE");
+//         return false;
+//       }
+//     }
+//   }
+//   xmlhttp1.open(
+//     "GET",
+//     baseurl + "/helpdeskcc" + "/answeredticketofagent?agent=" + agent,
+//     true
+//   );
+//   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+//   xmlhttp1.setRequestHeader(
+//     "Authorization",
+//     "Bearer " + localStorage.getItem("token")
+//   );
+//   xmlhttp1.onreadystatechange = function () {
+//     if (
+//       this.status == 200 &&
+//       this.responseText != null &&
+//       this.responseText != ""
+//     ) {
+//       var res = JSON.parse(this.responseText);
+//       var response = JSON.parse(res.response);
+
+//       tableData = "";
+//       {
+//         if (response.length > 0) {
+//           document.getElementById("answerHead").style.display = "revert";
+//           for (i = 0; i < response.length; i++) {
+//             if (i % 2 == 0) {
+//               tableData += "<tr " + ' class = "rem1 even">';
+//               tableData +=
+//                 '<td class="invert"><a id="link" onclick="startChat(' +
+//                 response[i].ticketNumber +
+//                 ')" class="approve"><u>' +
+//                 response[i].ticketNumber +
+//                 "</u></a></td>";
+//               tableData += '<td class="invert">' + response[i].name + "</td>";
+//               tableData += '<td class="invert">' + response[i].email + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].department + "</td>";
+//               // tableData += '<td class="invert">' + response[i].type + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].subject + "</td>";
+//               tableData += '<td class="invert">' + response[i].status + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].priority + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].timeStamp + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].repliedDate + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].assignedTo + "</td>";
+//             } else {
+//               tableData += "<tr" + ' class = "rem1 odd">';
+//               tableData +=
+//                 '<td class="invert"><a id="link" onclick="startChat(' +
+//                 response[i].ticketNumber +
+//                 ')" class="approve"><u>' +
+//                 response[i].ticketNumber +
+//                 "</u></a></td>";
+//               tableData += '<td class="invert">' + response[i].name + "</td>";
+//               tableData += '<td class="invert">' + response[i].email + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].department + "</td>";
+//               // tableData += '<td class="invert">' + response[i].type + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].subject + "</td>";
+//               tableData += '<td class="invert">' + response[i].status + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].priority + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].timeStamp + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].repliedDate + "</td>";
+//               tableData +=
+//                 '<td class="invert">' + response[i].assignedTo + "</td>";
+//             }
+//           }
+//           document.getElementById("answeredTickets").innerHTML = tableData;
+//         } else {
+//           document.getElementById("answerHead").style.display = "none";
+//           document.getElementById("answeredTickets").style.textAlign = "center";
+//           document.getElementById("answeredTickets").innerHTML =
+//             "NO ANSWERED TICKETS OF AGENT";
+//         }
+//       }
+//     }
+//   };
+//   xmlhttp1.send();
+// }
+
 function getAnsweredTicketsOfAgent(agent) {
   var xmlhttp1;
   try {
@@ -1080,54 +1332,32 @@ function getAnsweredTicketsOfAgent(agent) {
           document.getElementById("answerHead").style.display = "revert";
           for (i = 0; i < response.length; i++) {
             if (i % 2 == 0) {
-              tableData += "<tr " + ' class = "rem1 even">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
+              tableData += "<tr " + ' class="rem1 even">';
             } else {
-              tableData += "<tr" + ' class = "rem1 odd">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
+              tableData += "<tr " + ' class="rem1 odd">';
             }
+            tableData +=
+              '<td class="invert"><a id="link" onclick="startChat(' +
+              response[i].ticketNumber +
+              ')" class="approve"><u>' +
+              response[i].ticketNumber +
+              "</u></a></td>";
+            tableData += '<td class="invert">' + response[i].name + "</td>";
+            tableData += '<td class="invert">' + response[i].email + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].department + "</td>";
+            // tableData += '<td class="invert">' + response[i].type + "</td>";
+            tableData += '<td class="invert">' + response[i].subject + "</td>";
+            tableData += '<td class="invert">' + response[i].status + "</td>";
+            tableData +=
+              '<td class="invert priority-' + response[i].priority.toLowerCase() + '">' + response[i].priority + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].timeStamp + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].repliedDate + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].assignedTo + "</td>";
+            tableData += "</tr>";
           }
           document.getElementById("answeredTickets").innerHTML = tableData;
         } else {
@@ -1184,64 +1414,95 @@ function getClosedTicketsOfAgent(agent) {
           document.getElementById("closeHead").style.display = "revert";
           for (i = 0; i < response.length; i++) {
             if (i % 2 == 0) {
-              tableData += "<tr " + ' class = "rem1 even">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].closedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
+              tableData += "<tr " + ' class="rem1 even">';
             } else {
-              tableData +=
-                "<tr id = " +
-                response[i].ticketNumber +
-                ' class = "rem1' +
-                [i] +
-                ' odd">';
-              tableData +=
-                '<td class="invert"><a id="link" onclick="startChat(' +
-                response[i].ticketNumber +
-                ')" class="approve"><u>' +
-                response[i].ticketNumber +
-                "</u></a></td>";
-              tableData += '<td class="invert">' + response[i].name + "</td>";
-              tableData += '<td class="invert">' + response[i].email + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].department + "</td>";
-              // tableData += '<td class="invert">' + response[i].type + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].subject + "</td>";
-              tableData += '<td class="invert">' + response[i].status + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].priority + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].timeStamp + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].repliedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].closedDate + "</td>";
-              tableData +=
-                '<td class="invert">' + response[i].assignedTo + "</td>";
+              tableData += "<tr " + ' class="rem1 odd">';
             }
+            tableData +=
+              '<td class="invert"><a id="link" onclick="startChat(' +
+              response[i].ticketNumber +
+              ')" class="approve"><u>' +
+              response[i].ticketNumber +
+              "</u></a></td>";
+            tableData += '<td class="invert">' + response[i].name + "</td>";
+            tableData += '<td class="invert">' + response[i].email + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].department + "</td>";
+            // tableData += '<td class="invert">' + response[i].type + "</td>";
+            tableData += '<td class="invert">' + response[i].subject + "</td>";
+            tableData += '<td class="invert">' + response[i].status + "</td>";
+            tableData +=
+              '<td class="invert priority-' + response[i].priority.toLowerCase() + '">' + response[i].priority + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].timeStamp + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].repliedDate + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].closedDate + "</td>";
+            tableData +=
+              '<td class="invert">' + response[i].assignedTo + "</td>";
+            tableData += "</tr>";
           }
+          // for (i = 0; i < response.length; i++) {
+          //   if (i % 2 == 0) {
+          //     tableData += "<tr " + ' class = "rem1 even">';
+          //     tableData +=
+          //       '<td class="invert"><a id="link" onclick="startChat(' +
+          //       response[i].ticketNumber +
+          //       ')" class="approve"><u>' +
+          //       response[i].ticketNumber +
+          //       "</u></a></td>";
+          //     tableData += '<td class="invert">' + response[i].name + "</td>";
+          //     tableData += '<td class="invert">' + response[i].email + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].department + "</td>";
+          //     // tableData += '<td class="invert">' + response[i].type + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].subject + "</td>";
+          //     tableData += '<td class="invert">' + response[i].status + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].priority + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].timeStamp + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].repliedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].closedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].assignedTo + "</td>";
+          //   } else {
+          //     tableData +=
+          //       "<tr id = " +
+          //       response[i].ticketNumber +
+          //       ' class = "rem1' +
+          //       [i] +
+          //       ' odd">';
+          //     tableData +=
+          //       '<td class="invert"><a id="link" onclick="startChat(' +
+          //       response[i].ticketNumber +
+          //       ')" class="approve"><u>' +
+          //       response[i].ticketNumber +
+          //       "</u></a></td>";
+          //     tableData += '<td class="invert">' + response[i].name + "</td>";
+          //     tableData += '<td class="invert">' + response[i].email + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].department + "</td>";
+          //     // tableData += '<td class="invert">' + response[i].type + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].subject + "</td>";
+          //     tableData += '<td class="invert">' + response[i].status + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].priority + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].timeStamp + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].repliedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].closedDate + "</td>";
+          //     tableData +=
+          //       '<td class="invert">' + response[i].assignedTo + "</td>";
+          //   }
+          // }
           document.getElementById("closedTickets").innerHTML = tableData;
         } else {
           document.getElementById("closeHead").style.display = "none";
@@ -1411,9 +1672,9 @@ function getCustomerTicketDetails(ticketNumber) {
   xmlhttp1.open(
     "GET",
     baseurl +
-      "/helpdesklanding" +
-      "/getcustomerticketdetails?ticketNumber=" +
-      ticketNumber,
+    "/helpdesklanding" +
+    "/getcustomerticketdetails?ticketNumber=" +
+    ticketNumber,
     true
   );
   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");
@@ -1485,9 +1746,9 @@ function closeTicket(ticketNumber) {
   xmlhttp1.open(
     "POST",
     baseurl +
-      "/helpdesklanding" +
-      "/updateAnsweredTickets?ticketNumber=" +
-      ticketNumber,
+    "/helpdesklanding" +
+    "/updateAnsweredTickets?ticketNumber=" +
+    ticketNumber,
     true
   );
   xmlhttp1.setRequestHeader("Content-type", "application/json;charset=UTF-8");

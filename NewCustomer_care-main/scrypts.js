@@ -22,7 +22,7 @@ function closeSidebar() {
 // BAR CHART
 var barChartOptions = {
   series: [{
-    data: [10, 8, 6, 4, 2]
+    data: [249, 83, 79, 56]
   }],
   chart: {
     type: 'bar',
@@ -69,10 +69,10 @@ barChart.render();
 // AREA CHART
 var areaChartOptions = {
   series: [{
-    name: 'New_Tickets',
+    name: 'New Tickets',
     data: [31, 40, 28, 51, 42, 109, 100]
   }, {
-    name: 'Closed_Tickets',
+    name: 'Closed Tickets',
     data: [11, 32, 45, 32, 34, 52, 41]
   }],
   chart: {
@@ -96,13 +96,13 @@ var areaChartOptions = {
   yaxis: [
     {
       title: {
-        text: 'New_Tickets',
+        text: 'New Tickets',
       },
     },
     {
       opposite: true,
       title: {
-        text: 'Closed_Tickets',
+        text: 'Closed Tickets',
       },
     },
   ],

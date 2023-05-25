@@ -72,20 +72,20 @@
 
 <body>
     <div class="hero">
-        <nav class="top_navbar">
-            <div class="bell-icon">
+        <nav class="top_navbar" style="background-color:white;">
+            <div class="bell-icon" style="margin-left: 94%;">
                 <a>
                     <i class="fa-solid fa-bell" onclick="changeIcon(this)"></i>
                 </a>
 
             </div>
             <div class="user">
-                <span> Hello,Agent!</span>
+                <span> Hello,Abhigyan!</span>
             </div>
 
             <img src="image/profile.png" class="user-pic" onclick="toggleMenu()">
             <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu">
+                <div class="sub-menu" style="margin-left:86%;">
                     <div class="user-info">
                         <img src="image/profile.png">
                         <h2>Abigyan Mishra</h2>
@@ -179,7 +179,7 @@
 
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">New_Tickets</p>
+                <p class="text-primary">New Tickets</p>
                 <span class="material-icons-outlined text-blue">inventory_2</span>
               </div>
               <span class="text-primary font-weight-bold">249</span>
@@ -187,7 +187,7 @@
     
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">Open_Tickets</p>
+                <p class="text-primary">Open Tickets</p>
                 <span class="material-icons-outlined text-orange">add_shopping_cart</span>
               </div>
               <span class="text-primary font-weight-bold">83</span>
@@ -195,7 +195,7 @@
     
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">Answered_Tickets</p>
+                <p class="text-primary">Answered Tickets</p>
                 <span class="material-icons-outlined text-green">shopping_cart</span>
               </div>
               <span class="text-primary font-weight-bold">79</span>
@@ -203,7 +203,7 @@
     
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">Closed_Tickets</p>
+                <p class="text-primary">Closed Tickets</p>
                 <span class="material-icons-outlined text-red">notification_important</span>
               </div>
               <span class="text-primary font-weight-bold">56</span>
@@ -332,17 +332,22 @@
         })
 
     </script>
-    <script>
-        let subMenu = document.getElementById("subMenu");
-        function toggleMenu() {
-            subMenu.classList.toggle("open-menu")
-        }
+    <!-- script to toggle user icon -->
+  <script>
+    let sub_menu_wrap=document.querySelector(".sub-menu-wrap");
+    let btn=document.querySelector(".user-pic");
+    const toggleMenu=()=>
+      sub_menu_wrap.classList.toggle("open-menu");
+    
+    window.addEventListener("click",function(e){
+      if(!btn.contains(e.target)) sub_menu_wrap.classList.remove("open-menu")
+    });
 
-        let changeIcon = function (icon) {
-            icon.classList.toggle("fa-times")
-        }
+    let changeIcon = function (icon) {
+      icon.classList.toggle("fa-times")
+    }
 
-    </script>
+  </script>
     <script>
         function getAgentOpenTicket() {
             var agent = localStorage.getItem("agentname");
