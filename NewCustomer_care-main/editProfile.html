@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body style=" background-color: #e6e8ed; font-family: Montserrat, sans-serif;">
+    <section class="py-5 my-5">
+        <div class="container">
+            <h1 class="mb-5" style="color: #565454;">Edit Profile</h1>
+            <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+                <div class="profile-tab-nav border-right">
+                    <div class="p-4">
+                        <div class="img-circle text-center mb-3">
+                            <img src="image/user2.jpg" alt="Image" class="shadow">
+                        </div>
+                        <h4 class="text-center">Abhigyan Mishra</h4>
+                    </div>
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab"
+                            aria-controls="account" aria-selected="true">
+                            <i class="fa fa-home text-center mr-1"></i>
+                            Account
+                        </a>
+                        <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab"
+                            aria-controls="password" aria-selected="false">
+                            <i class="fa fa-key text-center mr-1"></i>
+                            Password
+                        </a>
+                        <a class="nav-link" id="Photo-tab" data-toggle="pill" href="#Photo" role="tab"
+                            aria-controls="Photo" aria-selected="false">
+                            <i class="fa fa-user text-center mr-1"></i>
+                            Profile Photo
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                        <h3 class="mb-4">Account Settings</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" value="Abhigyan" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" value="Mishra" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" value="abhigyanmisra@gmail.com" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Additional Email</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Phone number</label>
+                                    <h6>(Optional)</h6>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Designation</label>
+                                    <input type="text" class="form-control" value="Designation">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary">Update</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                        <h3 class="mb-4">Reset Password </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Old password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>New password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Confirm new password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary">Update</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="Photo" role="tabpanel" aria-labelledby="Photo-tab">
+                        <h3 class="mb-4">Profile Photo</h3>
+                        <div class="row-photo">
+                            <div class="wrapper">
+                                <div class="image">
+                                    <!-- <img src="" alt="" > -->
+                                </div>
+                                <div class="content">
+                                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                    <div class="text">No file chosen, yet!</div>
+                                </div>
+                                <div id="cancel-btn"><i class="fas fa-times"></i></div>
+                                <div class="file-name"
+                                    style="position: absolute;bottom: 0px; color: #fff;background: linear-gradient(135deg,#3c7ed5 0%,#5c0ee2 100%);width: 100%; padding: 8px 0; font-size: 17px;">
+                                    File name here</div>
+                            </div>
+                            <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+                            <input id="default-btn" type="file" hidden>
+                            <!-- <button id="btn-photo">Update</button> -->
+                        </div>
+                        <script>
+                            const wrapper = document.querySelector(".wrapper");
+                            const fileName = document.querySelector(".file-name");
+                            const defaultBtn = document.querySelector("#default-btn");
+                            const customBtn = document.querySelector("#custom-btn");
+                            const cancelBtn = document.querySelector("#cancel-btn i");
+                            const img = document.querySelector("img");
+                            let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+                            function defaultBtnActive(){
+                              defaultBtn.click();
+                            }
+                            defaultBtn.addEventListener("change", function(){
+                              const file = this.files[0];
+                              if(file){
+                                const reader = new FileReader();
+                                reader.onload = function(){
+                                  const result = reader.result;
+                                  img.src = result;
+                                  wrapper.classList.add("active");
+                                }
+                                cancelBtn.addEventListener("click", function(){
+                                  img.src = "";
+                                  wrapper.classList.remove("active");
+                                })
+                                reader.readAsDataURL(file);
+                              }
+                              if(this.value){
+                                let valueStore = this.value.match(regExp);
+                                fileName.textContent = valueStore;
+                              }
+                            });
+                         </script>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
+						<h3 class="mb-4">Application Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="app-check">
+										<label class="form-check-label" for="app-check">
+										App check
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+										<label class="form-check-label" for="defaultCheck2">
+										Lorem ipsum dolor sit.
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div> -->
+                    <!-- <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+						<h3 class="mb-4">Notification Settings</h3>
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification1">
+								<label class="form-check-label" for="notification1">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium accusamus, neque cupiditate quis
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification2" >
+								<label class="form-check-label" for="notification2">
+									hic nesciunt repellat perferendis voluptatum totam porro eligendi.
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification3" >
+								<label class="form-check-label" for="notification3">
+									commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
+								</label>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

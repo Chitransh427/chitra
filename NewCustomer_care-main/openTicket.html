@@ -313,12 +313,13 @@
             </div>
         </div>
     </div>
-    <footer>
+    <footer class="footer-distributed">
         <div class="index-credits">
+            <h3>Infinity Ventures<span></span></h3>
             <span class="left">&copy;2021 - A2ZSolutions LLC </span>
-            <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a></span>
+            <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a>All rights are reserved</span>
         </div>
-    </footer>
+      </footer>
     <script>
         const icn = document.querySelector("basic");
         const text = document.querySelector("#loghover");
@@ -378,39 +379,6 @@
         }
 
     </script>
-    <!-- <script>
-        let form = document.getElementById("hidePriority")
-        let ticketList = document.getElementById("openTickets")
-        form.addEventListener("submit", function (event) {
-            event.preventDefault()
-            //get the data
-            let priority = document.getElementById("priority").value
-            let status = document.getElementById("status").value
-            //create new row
-            let row = openTickets.insertRow()
-            let priorityCell = row.insertCell(7)
-            //set the cell values
-            priorityCell.innerHTMML = priority
-
-        // const priorityCells=document.querySelectorAll('tbody')
-        // //loop
-        // priorityCells.forEach(cell=>{
-        //     const priority=cell.textContent.trim()
-            //add priority class based on the priority value
-            if (priority === "High") {
-                priorityCell.classList.add("high")
-            }
-            else if (priority === "Medium") {
-                priorityCell.classList.add("medium")
-            }
-            else if (priority === "Low") {
-                priorityCell.classList.add("low")
-            }
-            //reset form
-            form.reset()
-
-        })
-    </script> -->
 </body>
 
 </html>
