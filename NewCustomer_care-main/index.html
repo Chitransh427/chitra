@@ -14,10 +14,17 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="mystyle.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/helpdesk_cc.js"></script>
+  <script src="js/url.js"></script>
 
   <script>
     window.onload = function () {
@@ -85,7 +92,7 @@
                 <h3>Abhigyan Mishra</h3>
               </div>
               <hr>
-              <a href="editProfile.html" class="sub-menu-link"  target="_blank" >
+              <a href="#" class="sub-menu-link" target="_blank">
                 <img src="image/editprofile.jpg">
                 <p>Edit Profile</p>
                 <span>></span>
@@ -95,12 +102,9 @@
                 <p>Settings</p>
                 <span>></span>
               </a>
-              <a href="#" class="sub-menu-link">
-                <img src="image/logout.png">
-                <p>Logout</p>
-                <span>></span>
-              </a>
-
+                <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i>
+                    <p>Logout</p>
+                  </a></basic>
             </div>
           </div>
         </nav>
@@ -165,13 +169,18 @@
       </div>
 
       <div class="main-cards">
-
         <div class="card">
           <div class="card-inner">
             <p class="text-primary"><a href="newTicket.html">New Tickets</a></p>
             <span class="material-icons-outlined text-blue">inventory_2</span>
           </div>
-          <span class="text-primary font-weight-bold">249</span>
+          <span class="text-primary font-weight-bold">
+            <table width="70%">
+              <tr>
+                <td class="rem1even" id="countNew"></td>
+              </tr>
+            </table>
+          </span>
         </div>
 
         <div class="card">
@@ -179,7 +188,13 @@
             <p class="text-primary"><a href="openTicket.html">Open Tickets</a></p>
             <span class="material-icons-outlined text-orange">add_shopping_cart</span>
           </div>
-          <span class="text-primary font-weight-bold">83</span>
+          <span class="text-primary font-weight-bold">
+            <table width="70%">
+              <tr>
+                <td class="rem1even" id="countOpen"></td>
+              </tr>
+            </table>
+          </span>
         </div>
 
         <div class="card">
@@ -187,7 +202,13 @@
             <p class="text-primary"><a href="answeredTicket.html">Answered Tickets</a></p>
             <span class="material-icons-outlined text-green">shopping_cart</span>
           </div>
-          <span class="text-primary font-weight-bold">79</span>
+          <span class="text-primary font-weight-bold">
+            <table width="70%">
+              <tr>
+                <td class="rem1even" id="countAnswered"> </td>
+              </tr>
+            </table>
+          </span>
         </div>
 
         <div class="card">
@@ -195,7 +216,13 @@
             <p class="text-primary"><a href="closedTicket.html">Closed Tickets</a></p>
             <span class="material-icons-outlined text-red">notification_important</span>
           </div>
-          <span class="text-primary font-weight-bold">56</span>
+          <span class="text-primary font-weight-bold">
+            <table width="70%">
+              <tr>
+                <td class="rem1even" id="countClosed"></td>
+              </tr>
+            </table>
+          </span>
         </div>
 
       </div>
@@ -219,14 +246,14 @@
     <!-- End Main -->
   </div>
 
- <!-- End Page Content Footer -->
- <footer class="footer-distributed">
-  <div class="index-credits">
+  <!-- End Page Content Footer -->
+  <footer class="footer-distributed">
+    <div class="index-credits">
       <h3>Infinity Ventures<span></span></h3>
       <span class="left">&copy;2021 - A2ZSolutions LLC </span>
       <span class="right"><a href="#">Supported By Infinity Ventures (India) Pvt Ltd.</a>All rights are reserved</span>
-  </div>
-</footer>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <!-- ApexCharts -->
@@ -246,6 +273,20 @@
     let changeIcon = function (icon) {
       icon.classList.toggle("fa-times")
     }
+
+  </script>
+
+  <script>
+    const icn = document.querySelector("basic");
+    const text = document.querySelector("#loghover");
+
+    icn.addEventListener("mouseenter", () => {
+      text.style.display = "inline"
+    })
+
+    icn.addEventListener("mouseleave", () => {
+      text.style.display = "none"
+    })
 
   </script>
 </body>

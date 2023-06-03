@@ -22,7 +22,7 @@ function closeSidebar() {
 // BAR CHART
 var barChartOptions = {
   series: [{
-    data: [249, 83, 79, 56]
+    data: [14, 38, 46, 16]
   }],
   chart: {
     type: 'bar',

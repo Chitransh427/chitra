@@ -470,23 +470,23 @@ function getAnsweredTickets() {
               default:
                 break;
             }
-            var status = response[i].status;
-            switch (status) {
-              case "open":
-                rowClass += " status-open";
-                break;
-              case "closed":
-                rowClass += " status-closed";
-                break;
-              case "answered":
-                rowClass += " status-answered";
-                break;
-              case "new":
-                rowClass += " status-new";
-                break;
-              default:
-                break;
-            }
+            // var status = response[i].status;
+            // switch (status) {
+            //   case "open":
+            //     rowClass += " status-open";
+            //     break;
+            //   case "closed":
+            //     rowClass += " status-closed";
+            //     break;
+            //   case "answered":
+            //     rowClass += " status-answered";
+            //     break;
+            //   case "new":
+            //     rowClass += " status-new";
+            //     break;
+            //   default:
+            //     break;
+            // }
             tableData += "<tr class='rem1 " + rowClass + "'>";
             tableData +=
               '<td class="invert"><a id="link" onclick="startChat(' +

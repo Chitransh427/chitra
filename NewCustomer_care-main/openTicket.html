@@ -71,7 +71,7 @@
 </head>
 
 <body>
-    <div class="hero">
+    <!-- <div class="hero">
         <nav class="top_navbar" style="background-color:white;">
             <div class="bell-icon" style="margin-left: 94%;">
                 <a>
@@ -110,17 +110,17 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </div> -->
     <!-- <nav class="top_navbar"> -->
     <!-- <div class="logo">
             <img class="logo-in" align="left" src="..\images\logo-in.png" alt="Stores for Everyone" />
         </div> -->
     <!-- <div class="username">
-            <span> Hello, <span id="profile_name"></span> !</span>
+            <span> Hello, <span id="profile_name"></span> !</span> -->
 
-            <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
-            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span> -->
-    <!-- <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
+            <!-- <basic><a class="header_right" onclick="logout()"><i class='bx bxs-exit'></i></a></basic>
+            <span class="text-on-hover" id="loghover" style="display: none;">Logout</span>
+    <a class="header_right" href="profile.html"><i class='bx bxs-user-circle'></i></a> -->
     <!-- </div>
     </nav> -->
 
@@ -179,34 +179,34 @@
 
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">New Tickets</p>
+                <p class="text-primary"><a href="newTicket.html">New Tickets</a></p>
                 <span class="material-icons-outlined text-blue">inventory_2</span>
               </div>
-              <span class="text-primary font-weight-bold">249</span>
+              <span class=" font-weight-bold">14</span>
             </div>
     
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">Open Tickets</p>
+                <p class="text-primary"><a href="openTicket.html">Open Tickets</a></p>
                 <span class="material-icons-outlined text-orange">add_shopping_cart</span>
               </div>
-              <span class="text-primary font-weight-bold">83</span>
+              <span class=" font-weight-bold">38</span>
             </div>
     
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">Answered Tickets</p>
+                <p class="text-primary"><a href="answeredTicket.html">Answered Tickets</a></p>
                 <span class="material-icons-outlined text-green">shopping_cart</span>
               </div>
-              <span class="text-primary font-weight-bold">79</span>
+              <span class=" font-weight-bold">46</span>
             </div>
     
             <div class="card">
               <div class="card-inner">
-                <p class="text-primary">Closed Tickets</p>
+                <p class="text-primary"><a href="closedTicket.html">Closed Tickets</a></p>
                 <span class="material-icons-outlined text-red">notification_important</span>
               </div>
-              <span class="text-primary font-weight-bold">56</span>
+              <span class=" font-weight-bold">16</span>
             </div>
     
           </div>
@@ -226,19 +226,21 @@
             </select>
         </div>
         <br>
-        <div id="rowDate" style="display:none;">From
+        <div id="rowDate" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">From
             <input type="date" id="datefilterfrom" data-date-split-input="true"> To <input type="date" id="datefilterto"
                 data-date-split-input="true">
         </div>
         <input type="text" id="name" onkeyup="myFunction(1,'name', 'openTickets')" placeholder="Search for names.."
-            title="Type in a name" style="display:none;">
+            title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
+
         <input type="text" id="Department" onkeyup="myFunction(3,'Department', 'openTickets')"
-            placeholder="Search for Department" title="Type in a name" style="display:none;">
-        <input type="text" id="Priority" onkeyup="myFunction(6,'Priority', 'openTickets')"
-            placeholder="Search for Priority" title="Type in a name" style="display:none;">
+            placeholder="Search for Department" title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
+        
+            <input type="text" id="Priority" onkeyup="myFunction(6,'Priority', 'openTickets')"
+            placeholder="Search for Priority" title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
 
         <input type="text" id="ticketNumber" onkeyup="myFunction(0,'ticketNumber', 'openTickets')"
-            placeholder="Search for ticketNumber" title="Type in a name" style="display:none;">
+            placeholder="Search for ticketNumber" title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
         <br>
     </div>
 

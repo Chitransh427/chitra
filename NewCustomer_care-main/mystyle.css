@@ -113,11 +113,37 @@ a.sub-menu-link {
     color: black;
     cursor: pointer;
 }
+.header_right p {
+    width: 100%;
+    padding: 0px 17px;
+    text-align: left;
+    font-size: 14px;
+    margin-top: -26px;
+    margin-left: 50px;
+    color: #061f81;
+    cursor:pointer;
+}
+.header_right p:hover{
+    font-weight: 600;
+}
+/* for logout */
+.header_right i{
+    color: #000000;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 14px;
+}
+
 /* css for main cards */
 .main-cards a{
     text-decoration: none;
     color: #666666;
 }
+.main-cards p:hover{
+    transform: translateX(5px);
+}
+
 /* table designing */
 .board {
     margin: 50px auto;
@@ -155,7 +181,7 @@ tr.odd {
     padding: 13px;
     margin-left: 8px;
     margin-right: 5px;
-    background: rgb(214, 233, 255);
+    background: rgb(132, 180, 234);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3);
 }
 

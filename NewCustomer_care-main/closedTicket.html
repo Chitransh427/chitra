@@ -105,7 +105,7 @@
     <!-- </div>
     </nav> -->
 
-    <div class="hero">
+    <!-- <div class="hero">
         <nav class="top_navbar" style="background-color:white;">
             <div class="bell-icon" style="margin-left: 94%;">
                 <a>
@@ -144,7 +144,7 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </div> -->
 
     <header>
         <div class="container-fluid">
@@ -185,44 +185,44 @@
             </select>
         </div>
     </div> -->
-        <div class="main-cards">
+    <div class="main-cards">
 
-            <div class="card">
-                <div class="card-inner">
-                    <p class="text-primary">New Tickets</p>
-                    <span class="material-icons-outlined text-blue">inventory_2</span>
-                </div>
-                <span class="text-primary font-weight-bold">249</span>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <p class="text-primary">Open Tickets</p>
-                    <span class="material-icons-outlined text-orange">add_shopping_cart</span>
-                </div>
-                <span class="text-primary font-weight-bold">83</span>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <p class="text-primary">Answered Tickets</p>
-                    <span class="material-icons-outlined text-green">shopping_cart</span>
-                </div>
-                <span class="text-primary font-weight-bold">79</span>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <p class="text-primary">Closed Tickets</p>
-                    <span class="material-icons-outlined text-red">notification_important</span>
-                </div>
-                <span class="text-primary font-weight-bold">56</span>
-            </div>
-
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary"><a href="newTicket.html">New Tickets</a></p>
+            <span class="material-icons-outlined text-blue">inventory_2</span>
+          </div>
+          <span class=" font-weight-bold">14</span>
         </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary"><a href="openTicket.html">Open Tickets</a></p>
+            <span class="material-icons-outlined text-orange">add_shopping_cart</span>
+          </div>
+          <span class=" font-weight-bold">38</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary"><a href="answeredTicket.html">Answered Tickets</a></p>
+            <span class="material-icons-outlined text-green">shopping_cart</span>
+          </div>
+          <span class=" font-weight-bold">46</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary"><a href="closedTicket.html">Closed Tickets</a></p>
+            <span class="material-icons-outlined text-red">notification_important</span>
+          </div>
+          <span class=" font-weight-bold">16</span>
+        </div>
+
+      </div>
         <div class="row">
             <div class="col-md-4">
-                <span class="dropbtn">Filter :</span>
+                <span class="dropbtn"><b>Filter :</b></span>
                 <select required name="Type" id="filter" class="form-select" required>
                     <option selected disabled hidden value="">Select</option>
                     <option value="filterByDate">Filter By Date</option>
@@ -233,19 +233,21 @@
                 </select>
             </div>
             <br>
-            <div id="rowDate" style="display:none;">From
+            <div id="rowDate" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">From
                 <input type="date" id="datefilterfrom" data-date-split-input="true"> To <input type="date"
                     id="datefilterto" data-date-split-input="true">
             </div>
             <input type="text" id="name" onkeyup="myFunction(1,'name', 'closedTickets')"
-                placeholder="Search for names.." title="Type in a name" style="display:none;">
+                placeholder="Search for names.." title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
+            
             <input type="text" id="Department" onkeyup="myFunction(3,'Department', 'closedTickets')"
-                placeholder="Search for Department" title="Type in a name" style="display:none;">
+                placeholder="Search for Department" title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
+
             <input type="text" id="Priority" onkeyup="myFunction(6,'Priority', 'closedTickets')"
-                placeholder="Search for Priority" title="Type in a name" style="display:none;">
+                placeholder="Search for Priority" title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
 
             <input type="text" id="ticketNumber" onkeyup="myFunction(0,'ticketNumber', 'closedTickets')"
-                placeholder="Search for ticketNumber" title="Type in a name" style="display:none;">
+                placeholder="Search for ticketNumber" title="Type in a name" style="display:none;box-shadow: 0 2px 4px 0 rgba(0, 0, 50, 0.3)">
             <br>
         </div>
 
@@ -302,7 +304,7 @@
         </center>
         <div class="board">
             <table width="100%">
-                <thead>
+                <thead >
                     <tr class="rem1 odd" id="closeHead" style="background-color:  #004a80;color: whitesmoke;">
                         <th>Ticket Number </th>
                         <th>Name</th>

@@ -37,8 +37,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed; */
-    background:#f3dfa6;
-    padding-bottom: 67px;
+    background:linear-gradient(rgb(226, 226, 255),rgb(255, 224, 224));
+    padding-bottom: 95px;
 }
 
 .input {
